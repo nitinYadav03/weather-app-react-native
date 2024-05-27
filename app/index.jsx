@@ -154,7 +154,11 @@ export default function Index() {
             </Text>
             <View className="flex-row justify-center">
               <Image
-                source={weatherImages[current?.condition?.text]}
+                source={
+                  weatherImages[current?.condition?.text] || {
+                    uri: 'http:' + current?.condition?.icon,
+                  }
+                }
                 // source={{ uri: 'http:' + current?.condition?.icon }}
                 className="w-52 h-52"
               />
